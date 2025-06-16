@@ -1,0 +1,63 @@
+<h2>Listado de productos financieros</h2>
+
+<div class="controls">
+  <input type="text" [(ngModel)]="searchText" (input)="onSearch()" placeholder="Search..." />
+  <button (click)="addProduct()">Agregar</button>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Logo</th>
+      <th>Nombre del producto</th>
+      <th>Descripción</th>
+      <th>Fecha de liberación</th>
+      <th>Fecha de revisión</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of pagedProducts">
+      <td><img [src]="product.logo" width="32" alt="Logo"></td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.date_release }}</td>
+      <td>{{ product.date_revision }}</td>
+      <td class="actions-cell">
+        <div class="menu-container" (click)="toggleMenu(product.id)">
+          &#8942;
+          <div class="dropdown" *ngIf="activeMenuId === product.id">
+            <button (click)="editProduct(product.id)">Editar</button>
+            <button (click)="openModal(product.id, product.name)">Eliminar</button>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="footer-controls">
+    <div class="results-info">
+    {{ filteredProducts.length }} Resultados
+    </div>
+
+    <div>
+    <button (click)="onPageChange(-1)" [disabled]="currentPage === 1">Anterior</button>
+    Página {{ currentPage }} de {{ totalPages }}
+    <button (click)="onPageChange(1)" [disabled]="currentPage === totalPages">Siguiente</button>
+    <select [(ngModel)]="itemsPerPage" (change)="onItemsPerPageChange()">
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="20">20</option>
+    </select>
+    </div>
+</div>
+
+
+
+
+<app-modal
+  [visible]="showModal"
+  [productTitle]="productToDeleteTitle"
+  (confirm)="deleteConfirmed()"
+  (cancel)="showModal = false">
+</app-modal>

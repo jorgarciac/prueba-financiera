@@ -1,0 +1,88 @@
+<h2>{{ isEditMode ? 'Editar producto' : 'Formulario de Registro' }}</h2>
+
+<form (ngSubmit)="onSubmit()" #productForm="ngForm" class="form-grid">
+
+  <div class="form-group">
+    <label>ID</label>
+        <input type="text"
+        name="id"
+        [(ngModel)]="product.id"
+        [readonly]="isEditMode"
+        required minlength="3" maxlength="10"
+        (input)="autoVerifyId()"
+        #idCtrl="ngModel">
+    <div *ngIf="idCtrl.invalid && idCtrl.touched" class="error-msg">
+        ID no válido (3-10 caracteres)
+    </div>
+    <div *ngIf="idExists === true" class="error-msg">
+        El ID ya existe
+    </div>
+    <div *ngIf="idExists === false" class="success-msg">
+        El ID está disponible
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Nombre</label>
+    <input type="text"
+           name="name"
+           [(ngModel)]="product.name"
+           required minlength="5" maxlength="100"
+           #nameCtrl="ngModel">
+    <div *ngIf="nameCtrl.invalid && nameCtrl.touched" class="error-msg">
+      Este campo es requerido
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Descripción</label>
+    <input type="text"
+           name="description"
+           [(ngModel)]="product.description"
+           required minlength="10" maxlength="200"
+           #descCtrl="ngModel">
+    <div *ngIf="descCtrl.invalid && descCtrl.touched" class="error-msg">
+      Este campo es requerido
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Logo</label>
+    <input type="text"
+           name="logo"
+           [(ngModel)]="product.logo"
+           required
+           #logoCtrl="ngModel">
+    <div *ngIf="logoCtrl.invalid && logoCtrl.touched" class="error-msg">
+      Este campo es requerido
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Fecha Liberación</label>
+    <input type="date"
+           name="date_release"
+           [(ngModel)]="product.date_release"
+           required
+           #relCtrl="ngModel">
+  </div>
+
+  <div class="form-group">
+    <label>Fecha Revisión</label>
+    <input type="date"
+           name="date_revision"
+           [(ngModel)]="product.date_revision"
+           required
+           #revCtrl="ngModel"
+           [readonly]="isEditMode">
+  </div>
+
+  <div class="form-actions">
+    <button type="button" (click)="resetForm()" class="btn-reset">Reiniciar</button>
+    <button type="submit" [disabled]="productForm.invalid" class="btn-submit">
+      {{ isEditMode ? 'Guardar cambios' : 'Enviar' }}
+    </button>
+  </div>
+
+</form>
+

@@ -1,0 +1,170 @@
+h2 {
+  text-align: center;
+}
+
+input[type="text"], select {
+  width: 200px;
+  padding: 6px;
+  margin: 10px 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+table th {
+  background-color: #f2f2f2;
+}
+
+table tr:hover {
+  background-color: #f1f1f1;
+}
+
+button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+button:nth-child(1) {
+  background-color: #007bff;
+  margin-right: 5px;
+}
+
+button:nth-child(2) {
+  background-color: #dc3545;
+}
+
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+div {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.controls select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.controls button {
+  background-color: #ffdd00;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.controls button:hover {
+  background-color: #e6c800;
+}
+
+.search-bar {
+  margin-bottom: 10px;
+}
+
+.search-bar input[type="text"] {
+  width: 200px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* NUEVO: estilos para botoncito de acciones y dropdown */
+.actions-cell {
+  position: relative;
+}
+
+.menu-container {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+.menu-container:hover {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 20px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  min-width: 100px;
+  z-index: 10;
+}
+
+.dropdown button {
+  display: block;
+  width: 100%;
+  padding: 6px;
+  border: none;
+  background: white;
+  text-align: left;
+  cursor: pointer;
+  color: #333;
+}
+
+.dropdown button:hover {
+  background: #f0f0f0;
+}
+
+/* Footer controls neutro (sin amarillo, estilo simple) */
+.footer-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.footer-controls button {
+  background-color: #f0f0f5;
+  color: #1c1c3c;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.footer-controls button:hover {
+  background-color: #dcdce6;
+}
+
+.footer-controls select {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: auto; /* que se ajuste al contenido */
+  min-width: 60px;
+  text-align: center;
+}
+
