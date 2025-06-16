@@ -1,27 +1,102 @@
-# PruebaFinanciera
+# Prueba Técnica Frontend - Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+## 📌 Descripción
+Aplicación desarrollada como parte de la prueba técnica. Permite gestionar productos financieros: listado, búsqueda, paginación, creación, edición y eliminación, cumpliendo buenas prácticas (SOLID, clean code).
 
-## Development server
+## ⚙️ Tecnologías
+- Angular 16.x
+- TypeScript
+- CSS puro
+- Karma + Jasmine (tests unitarios)
+- Node.js (backend local de prueba)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🚀 ¿Cómo correr el proyecto?
 
-## Code scaffolding
+### Backend (API local)
+1️⃣ Ve al directorio del backend:
+```bash
+cd repo-interview-main
+```
+2️⃣ Instala dependencias:
+```bash
+npm install
+```
+3️⃣ Importante: abre `src/main.ts` y **descomenta la línea 8**:
+```typescript
+// cors: true,
+```
+👉 Así debe quedar:
+```typescript
+cors: true,
+```
+Esto habilita CORS para que el frontend se comunique con el backend sin errores.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+4️⃣ Inicia el servidor:
+```bash
+npm run start:dev
+```
+👉 Servirá en `http://localhost:3002`
 
-## Build
+### Frontend
+1️⃣ Ve al directorio del frontend:
+```bash
+cd prueba-financiera
+```
+2️⃣ Instala dependencias:
+```bash
+npm install
+```
+3️⃣ Levanta el servidor Angular:
+```bash
+ng serve
+```
+👉 Accede en `http://localhost:4200`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🧪 Pruebas unitarias
+Ejecuta:
+```bash
+ng test --code-coverage
+```
+💡 Abre el reporte en:
+```
+coverage/index.html
+```
+✅ Cobertura actual:
+- Statements: ~70%  
+- Branches: ~70%  
+- Functions: ~60%  
+- Lines: ~69%  
 
-## Running unit tests
+## 💡 Funcionalidades
+✔ Listado de productos financieros  
+✔ Búsqueda de productos  
+✔ Paginación (5, 10, 20 registros)  
+✔ Agregar producto (con validación y verificación de ID)  
+✔ Editar producto  
+✔ Eliminar producto (con modal de confirmación)  
+✔ Validaciones visuales en formularios  
+✔ Menú contextual para acciones  
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 📁 Estructura destacada
+```
+src/
+ ├── app/
+ │    ├── pages/
+ │    │    ├── products-list/
+ │    │    └── product-form/
+ │    ├── services/
+ │    └── shared/ (modal, etc)
+```
+👉 Separación clara de responsabilidades.
 
-## Running end-to-end tests
+## 🚀 Mejoras posibles
+- Añadir debounce a búsqueda para optimizar rendimiento  
+- Loader / skeleton mientras carga la tabla  
+- Responsividad completa para móviles  
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 📝 Autor
+Eduardo García Castro  
+Prueba Técnica TCS
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## 💬 Notas
+Este proyecto respeta los principios **SOLID**, es mantenible y escalable.
